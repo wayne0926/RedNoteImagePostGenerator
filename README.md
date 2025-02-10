@@ -24,7 +24,7 @@
 
 1. 克隆项目
 ```bash
-git clone [你的仓库URL]
+git clone https://github.com/wayne0926/RedNoteImagePostGenerator
 cd RedNoteImagePostGenerator
 ```
 
