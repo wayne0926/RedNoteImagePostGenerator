@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, minimal-ui">
+    <meta name="theme-color" content="#4a90e2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>AI图片生成</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Add PWA support -->
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='icons/icon-160x160.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='icons/icon-160x160.png') }}">
+    
+    <!-- Add PWA installation script -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/static/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>AI图片生成</h1>
+        <div class="input-area">
+            <input type="text" id="promptSuffix" placeholder="描述你想要生成的图片..." autocomplete="off">
+            <div class="button-group">
+                <button id="randomButton" class="btn-mobile">
+                    <span>随机灵感</span>
+                </button>
+                <button id="generateButton" class="btn-mobile">
+                    <span>生成图片</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="queue-area" style="display: none;">
+            <h2>处理队列</h2>
+            <ul id="queuedPromptsList"></ul>
+        </div>
+        
+        <div class="generated-images-area">
+            <h2>生成结果</h2>
+            <div class="content-grid">
+                <div id="generatedImagesContainer" class="images-grid"></div>
+                <div id="captionsContainer" class="captions-grid"></div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

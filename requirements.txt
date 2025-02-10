@@ -1,0 +1,7 @@
+Flask
+huggingface_hub
+Pillow
+openai
+python-dotenv
+google-genai
+flask-cors

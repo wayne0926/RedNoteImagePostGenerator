@@ -1,0 +1,16 @@
+{
+  "name": "AI图片生成",
+  "short_name": "AI图片",
+  "description": "AI powered image generation tool",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4a90e2",
+  "icons": [
+    {
+      "src": "/static/icons/icon-160x160.png",
+      "sizes": "160x160",
+      "type": "image/png"
+    }
+  ]
+} 
